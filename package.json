@@ -1,0 +1,29 @@
+{
+  "name": "solidity-multi-sig-wallet",
+  "version": "1.0.0",
+  "description": "A simple implementation of a Solidity Multi-Signature Wallet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kasunkv/solidity-multi-sig-wallet.git"
+  },
+  "keywords": [
+    "solidity",
+    "wallet",
+    "multi-sig",
+    "multi-sig-wallet",
+    "smart-contracts"
+  ],
+  "author": "Kasun Kodagoda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kasunkv/solidity-multi-sig-wallet/issues"
+  },
+  "homepage": "https://github.com/kasunkv/solidity-multi-sig-wallet#readme",
+  "devDependencies": {
+    "hardhat": "^2.6.8"
+  }
+}
