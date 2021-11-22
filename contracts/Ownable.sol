@@ -3,20 +3,22 @@
 pragma solidity 0.8.10;
 
 contract Ownable {
-    mapping(address => bool) owners;
+    mapping(address => bool) internal owners;
     
-    event OwnershipAssigned(address[3] indexed owners);
+    event OwnershipAssigned(address indexed owner);
     
     modifier onlyOwners {
         require(owners[msg.sender], "You are not one of the wallet owners");
         _;
     }
     
-    constructor(address owner2, address owner3) {
+    constructor(address[] memory _owners) {
         owners[msg.sender] = true;
-        owners[owner2] = true;
-        owners[owner3] = true;
+        emit OwnershipAssigned(msg.sender);
         
-        emit OwnershipAssigned([msg.sender, owner2, owner3]);
+        for(uint i = 0; i < _owners.length; i++) {
+            owners[_owners[i]] = true;
+            emit OwnershipAssigned(_owners[i]);
+        }
     }
 }

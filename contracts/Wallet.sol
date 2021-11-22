@@ -26,11 +26,11 @@ contract Wallet is Ownable {
     mapping(uint => TransferRequest) public requestedTransfers;
     
     /**
-     * @dev _owner1 would be meg.sender during contract deployment
+     * @dev one of the owners would be msg.sender during contract deployment
      */
-    constructor(address _owner2, address _owner3, uint8 _requiredApprovals)
-        Ownable(_owner2, _owner3) {
-        requiredApprovals = _requiredApprovals;
+    constructor(address[] memory _owners)
+        Ownable(_owners) {
+        requiredApprovals = uint8(_owners.length);
     }
     
     /**
@@ -90,5 +90,4 @@ contract Wallet is Ownable {
         payable(txRequest.recipient).transfer(txRequest.amount);
         emit TransderRequestCompleted(txRequest.txId, txRequest.amount, txRequest.recipient);
     }
-    
 }
